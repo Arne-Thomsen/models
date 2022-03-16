@@ -25,7 +25,7 @@ from __future__ import print_function
 import math
 from typing import Any, Dict, List, Optional, Text, Tuple
 
-from keras.layers.preprocessing import image_preprocessing as image_ops
+# from keras.layers.preprocessing import image_preprocessing as image_ops
 import tensorflow as tf
 
 
@@ -170,8 +170,8 @@ def transform(image: tf.Tensor, transforms) -> tf.Tensor:
   if transforms.shape.rank == 1:
     transforms = transforms[None]
   image = to_4d(image)
-  image = image_ops.transform(
-      images=image, transforms=transforms, interpolation='nearest')
+  # image = image_ops.transform(
+  #     images=image, transforms=transforms, interpolation='nearest')
   return from_4d(image, original_ndims)
 
 
