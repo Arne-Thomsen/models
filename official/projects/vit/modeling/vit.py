@@ -189,6 +189,7 @@ class VisionTransformer(tf.keras.Model):
                patch_size=16,
                hidden_size=768,
                representation_size=0,
+               num_params=2,
                classifier='token',
                kernel_regularizer=None,
                original_init=True):
@@ -247,10 +248,13 @@ class VisionTransformer(tf.keras.Model):
       x = tf.nn.tanh(x)
     else:
       x = tf.identity(x, name='pre_logits')
-    endpoints = {
-        'pre_logits':
-            tf.reshape(x, [-1, 1, 1, representation_size or hidden_size])
-    }
+
+    # endpoints = {
+    #     'pre_logits':
+    #         tf.reshape(x, [-1, 1, 1, representation_size or hidden_size])
+    # }
+
+    endpoints = layers.Dense(num_params)(x)
 
     super(VisionTransformer, self).__init__(inputs=inputs, outputs=endpoints)
 
