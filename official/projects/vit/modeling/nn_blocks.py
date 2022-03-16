@@ -16,7 +16,7 @@
 import tensorflow as tf
 
 from official.nlp import modeling
-from official.vision.beta.modeling.layers.nn_layers import StochasticDepth
+# from official.vision.beta.modeling.layers.nn_layers import StochasticDepth
 
 
 class TransformerEncoderBlock(modeling.layers.TransformerEncoderBlock):
@@ -34,7 +34,8 @@ class TransformerEncoderBlock(modeling.layers.TransformerEncoderBlock):
 
   def build(self, input_shape):
     if self._stochastic_depth_drop_rate:
-      self._stochastic_depth = StochasticDepth(self._stochastic_depth_drop_rate)
+      # self._stochastic_depth = StochasticDepth(self._stochastic_depth_drop_rate)
+      pass
     else:
       self._stochastic_depth = lambda x, *args, **kwargs: tf.identity(x)
 
