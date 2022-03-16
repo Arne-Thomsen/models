@@ -17,7 +17,7 @@ from typing import Callable, Optional, Union, List, Tuple
 
 import gin
 import tensorflow as tf
-import tensorflow_addons.optimizers as tfa_optimizers
+# import tensorflow_addons.optimizers as tfa_optimizers
 from official.modeling.optimization import slide_optimizer
 from official.modeling.optimization import adafactor_optimizer
 from official.modeling.optimization import ema_optimizer
@@ -32,7 +32,7 @@ OPTIMIZERS_CLS = {
     'adam': tf.keras.optimizers.Adam,
     # 'adam_experimental': tf.keras.optimizers.experimental.Adam,
     'adamw': nlp_optimization.AdamWeightDecay,
-    'lamb': tfa_optimizers.LAMB,
+    # 'lamb': tfa_optimizers.LAMB,
     'rmsprop': tf.keras.optimizers.RMSprop,
     'lars': lars_optimizer.LARS,
     'adagrad': tf.keras.optimizers.Adagrad,
